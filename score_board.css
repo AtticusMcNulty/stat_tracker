@@ -1,0 +1,328 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    background: #14213d;
+}
+
+/******************************* IN GAME SECTION *******************************/
+
+/* STATS */
+#stats {
+    background: black;
+    
+    margin: 4vw 4vw 4vw 4vw;
+    padding: 1vw 1vw 1vw 1vw;
+    
+    border: 7px solid white;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+/* HEADERS */
+#stats_header {
+    color: white;
+    font-size: 2vw;
+
+    background: black;
+
+    padding-left: 3vw;
+    padding-right: 0vw;
+
+    /* border: 3px solid #F94F6D; */
+    border-radius: 15px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.stat_header {
+    padding: 0vw 0vw 0vw 1vw;
+    margin-top: 1.2vw;
+}
+
+#in_game_header {
+    text-align: center;
+    color: white;
+
+    font-size: 6vw;
+}
+
+/* BUTTONS */
+.stats_btn {
+    background: white;
+
+    font-family: Verdana, sans-serif;
+    color: black;
+    font-size: 1.7vw;
+    text-align: center;
+
+    border: 0px solid black;
+    border-radius: 20px;
+
+    padding: 8px 14px;
+    margin-top: 1.9vw;
+}
+
+.stats_btn:active {
+    transform: scale(1.015);
+}
+
+#stats_btn {
+    background: black;
+
+    margin-left: 1vw;
+    padding-right: 3vw;
+
+    /* border: 3px solid #F94F6D; */
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+/* COLUMN 1 BUTTONS */
+#stats_btn_col1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding-left: 3vw;
+    padding-bottom: 1.5vw;
+}
+
+#goals_btn {
+    margin-top: 0vw;
+}
+
+/* COLUMN 2 BUTTONS */
+#stats_btn_col2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding-left: 4vw;
+    padding-bottom: 1.5vw;
+}
+
+#key_passes_btn {
+    margin-top: 6.45vw;
+}
+
+/* COLUMN 3 BUTTONS */
+#stats_btn_col3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding-left: 4vw;
+    padding-bottom: 1.5vw;
+}
+
+#shots_hit_post_btn {
+    margin-top: 13vw;
+}
+
+#interceptions_btn {
+    margin-top: 14.9vw;
+}
+
+#red_card_btn {
+    margin-top: 2.1vw;
+}
+
+#update_stats_btn {
+    background: #52b788;
+    color: white;
+
+    border: 0px;
+    border-radius: 25px;
+    
+    margin-left: 4vw;
+    padding: 1vw 2vw;
+    
+    font-size: 2vw;
+    font-weight: bold;
+}
+
+#update_stats_btn:active {
+    border: 1px solid white;
+    transform: scale(1.015);
+}
+
+/************************* PERFORMANCE ANALYTICS SECTION ************************/
+#performance {
+    background: black;
+    
+    margin: 4vw 4vw 4vw 4vw;
+    padding: 1vw 1vw 1vw 1vw;
+    
+    border: 7px solid white;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#performance_header {
+    text-align: center;
+    color: white;
+    font-size: 6vw;
+
+    margin-top: 8vw;
+}
+
+.performance_col {
+    color: white;
+    font-size: 1.8vw;
+
+    background: black;
+
+    padding-left: 3vw;
+    padding-right: 0vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#comparison_performance {
+    text-align: center;
+}
+
+#comparison_header {
+    text-align: start;
+}
+
+#games_played {
+    display: flex;
+}
+
+#games_played_header {
+    color: white;
+
+    border: 0px;
+    border-radius: 25px;
+    
+    margin: 0.5vw 0vw 0vw 4vw;
+    padding: 1vw 2vw;
+    
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+#games_played_btn_minus {
+    font-size: 2vw;
+
+    margin: 1.65vw 0vw 1.75vw 0vw;
+    padding: 0.6vw 1.6vw;
+
+    border-radius: 5px;
+}
+
+#games_played_btn_minus:active {
+    transform: scale(1.03);
+    border: 0.5px solid white;
+}
+
+#games_played_btn_plus {
+    font-size: 2vw;
+
+    margin: 1.65vw 1.2vw 1.75vw 0vw;
+    padding: 0.6vw 1.4vw;
+
+    border-radius: 5px;
+}
+
+#games_played_btn_plus:active {
+    transform: scale(1.03);
+    border: 0.5px solid white;
+}
+
+
+/********************************* ALL TIME SECTION ********************************/
+#all_time {
+    background: black;
+    
+    margin: 4vw 4vw 4vw 4vw;
+    padding: 1vw 1vw 1vw 1vw;
+    
+    border: 7px solid white;
+    border-radius: 25px;
+    
+    display: flex;
+    flex-direction: row;
+}
+
+#all_time_stats {
+    color: white;
+    font-size: 2.315vw;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0vw 1vw 2vw 2vw;
+}
+
+#all_time_btns_plus {
+    display: flex;
+    flex-direction: column;
+
+    margin: -3vw 2vw 2vw auto;
+}
+
+#all_time_btns_minus {
+    display: flex;
+    flex-direction: column;
+
+    margin: -3vw 2vw 0vw 0vw;
+}
+
+.all_time_btn_plus {
+    background-color: #52b788;
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+
+    border: 0px solid white;
+    border-radius: 6px;
+
+    padding: 0.75vw 1.5vw;
+
+    margin-top: 5.2vw;
+}
+
+.all_time_btn_minus {
+    background-color: #c1121f;
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+
+    border: 0px solid white;
+    border-radius: 6px;
+
+    padding: 0.75vw 1.6vw;
+
+    margin-top: 5.2vw;
+}
+
+#all_time_header {
+    color: white;
+    font-size: 6vw;
+
+    text-align: center;
+    margin-top: 8vw;
+}
+
+
+/********************************* GAMES LOG SECTION ********************************/
+#games_log {
+    width: 2vw;
+}

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard</title>
+    <link rel="stylesheet" href="score_board.css" />
+</head>
+<body>
+    <script src="score_board.js"></script>
+
+    <h1 id="in_game_header">In Game Stats:</h1>
+
+    <div id="stats">
+
+        <div id="stats_header">
+            <h4 class="stat_header" id="goals_header">Goals: </h4>
+            <h4 class="stat_header" id="chance_creation_header">Creation: </h4>
+            <h4 class="stat_header" id="shots_header">Shots: </h4>
+            <h4 class="stat_header" id="passes_header">Passes: </h4>
+            <h4 class="stat_header" id="dribbles_header">Dribbles: </h4>
+            <h4 class="stat_header" id="tackles_header">Tackles: </h4>
+            <h4 class="stat_header" id="violations_header">Violations: </h4>
+        </div>
+
+        <div id="stats_btn">
+            <div id="stats_btn_col1">
+                <button class="stats_btn" id="goals_btn" onclick="add_goal()">Scored: 0</button>
+                <button class="stats_btn" id="assists_btn" onclick="add_assist()">Assists: 0</button>
+                <button class="stats_btn" id="shots_on_target_btn" onclick="add_shots_on_target()">On Target: 0</button>
+                <button class="stats_btn" id="passes_completed_btn" onclick="add_pass_completed()">Completed: 0</button>
+                <button class="stats_btn" id="successful_dribbles_btn" onclick="add_dribble_succeeded()">Successful: 0</button>
+                <button class="stats_btn" id="duels_won_btn" onclick="add_duels_won()">Duels Won: 0</button>
+                <button class="stats_btn" id="fouls_btn" onclick="add_foul()">Fouls: 0</button>
+            </div>
+
+            <div id="stats_btn_col2">
+                <button class="stats_btn" id="key_passes_btn" onclick="add_key_pass()">Key Passes: 0</button>
+                <button class="stats_btn" id="shots_off_target_btn" onclick="add_shots_off_target()">Off Target: 0</button>
+                <button class="stats_btn" id="passes_missed_btn" onclick="add_pass_missed()">Missed: 0</button>
+                <button class="stats_btn" id="unsuccessful_dribbles_btn" onclick="add_dribble_unsucceeded()">Failed: 0</button>
+                <button class="stats_btn" id="duels_lost_btn" onclick="add_duels_lost()">Duels Lost: 0</button>
+                <button class="stats_btn" id="yellow_cards_btn" onclick="add_yellow_card()">Yellow Cards: 0</button>
+            </div>
+
+            <div id="stats_btn_col3">
+                    <button class="stats_btn" id="shots_hit_post_btn" onclick="add_shots_hit_post()">Hit Post: 0</button>
+                    <button class="stats_btn" id="interceptions_btn" onclick="add_interceptions()">Interceptions: 0</button>
+                    <button class="stats_btn" id="red_card_btn" onclick="add_red_card()">Red Card: 0</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="update_stats_btn" onclick="update_stats()">Update Stats</button>
+
+    <h1 id="performance_header">Performance Analytics:</h1>
+    <div id="games_played">
+        <h2 id="games_played_header">Games Played: 0</h2>
+        <button id="games_played_btn_plus" class="all_time_btn_plus" onclick="add1_game_played_at()">+</button>
+        <button id="games_played_btn_minus" class="all_time_btn_minus" onclick="minus1_game_played_at()">-</button>
+    </div>
+    <div id="performance">
+        <div id="current_game_performance" class="performance_col">
+            <h2>Last Match:</h2>
+            <h4 id="goals_current_game_header">Goals:</h4>
+            <h4 id="assists_current_game_header">Assists:</h4>
+            <h4 id="key_passes_current_game_header">Key Passes:</h4>
+            <h4 id="shots_current_game_header">Shots:</h4>
+            <h4 id="shots_on_target_current_game_header">Shots on Target:</h4>
+            <h4 id="shots_off_target_current_game_header">Shots off Target:</h4>
+            <h4 id="shots_hit_post_current_game_header">Shots that Hit Post:</h4>
+            <h4 id="shots_on_target_percent_current_game_header">Shots on Target %:</h4>
+            <h4 id="shots_per_goal_current_game_header">Shots per Goal:</h4>
+            <h4 id="passes_current_game_header">Passes Attempted:</h4>
+            <h4 id="passes_completed_current_game_header">Passes Completed:</h4>
+            <h4 id="passes_missed_current_game_header">Passes Missed:</h4>
+            <h4 id="pass_percent_current_game_header">Pass Completion %:</h4>
+            <h4 id="dribbles_current_game_header">Dribbles Attempted:</h4>
+            <h4 id="successful_dribbles_current_game_header">Successful Dribbles:</h4>
+            <h4 id="failed_dribbles_current_game_header">Failed Dribbles:</h4>
+            <h4 id="dribble_completion_percent_current_game_header">Dribble Completion %:</h4>
+            <h4 id="duels_current_game_header">Duels Attempted:</h4>
+            <h4 id="duels_won_current_game_header">Duels Won:</h4>
+            <h4 id="duels_lost_current_game_header">Duels Lost:</h4>
+            <h4 id="duel_success_percent_current_game_header">Duel Success %:</h4>
+            <h4 id="interceptions_current_game_header">Interceptions:</h4>
+            <h4 id="fouls_current_game_header">Fouls:</h4>
+            <h4 id="yellow_cards_current_game_header">Yellow Cards:</h4>
+            <h4 id="red_card_current_game_header">Red Card:</h4> 
+        </div>
+
+        <div id="all_time_game_performance1" class="performance_col">
+            <h2>Per Game:</h2>
+            <h4 id="goals_per_game_header">Goals:</h4>
+            <h4 id="assists_per_game_header">Assists:</h4>
+            <h4 id="key_passes_per_game_header">Key Passes:</h4>
+            <h4 id="shots_per_game_header">Shots:</h4>
+            <h4 id="shots_on_target_per_game_header">Shots on Target:</h4>
+            <h4 id="shots_off_target_per_game_header">Shots off Target:</h4>
+            <h4 id="shots_hit_post_per_game_header">Shots Hit Post:</h4>
+            <h4 id="shots_on_target_percent_per_game_header">Shots on Target %:</h4>
+            <h4 id="shots_per_goal_per_game_header">Shots per Goal:</h4>
+            <h4 id="passes_attempted_per_game_header">Passes Attempted:</h4>
+            <h4 id="passes_completed_per_game_header">Passes Completed:</h4>
+            <h4 id="passes_missed_per_game_header">Passes Missed:</h4>
+            <h4 id="passes_completion_percent_per_game_header">Passes Completion %:</h4>
+            <h4 id="dribbles_attempted_per_game_header">Dribbles Attempted:</h4>
+            <h4 id="successful_dribbles_per_game_header">Successful Dribbles:</h4>
+            <h4 id="failed_dribbles_per_game_header">Failed Dribbles:</h4>
+            <h4 id="dribble_completion_percent_per_game_header">Dribble Completion %:</h4>
+            <h4 id="duels_attempted_per_game_header">Duels Attempted:</h4>
+            <h4 id="duels_won_per_game_header">Duels Won:</h4>
+            <h4 id="duels_lost_per_game_header">Duels Lost:</h4>
+            <h4 id="duel_success_percent_per_game_header">Duel Success %:</h4>
+            <h4 id="interceptions_per_game_header">Interceptions:</h4>
+            <h4 id="fouls_per_game_header">Fouls:</h4>
+            <h4 id="yellow_cards_per_game_header">Yellow Cards:</h4>
+            <h4 id="red_card_per_game_header">Red Card:</h4>
+        </div>
+
+        <div id="comparison_performance" class="performance_col">
+            <h2 id="comparison_header">Comparison:</h2>
+            <h4 id="goals_comparison_header">Unknown</h4>
+            <h4 id="assists_comparison_header">Unknown</h4>
+            <h4 id="key_passes_comparison_header">Unknown</h4>
+            <h4 id="shots_comparison_header">Unknown</h4>
+            <h4 id="shots_on_target_comparison_header">Unknown</h4>
+            <h4 id="shots_off_target_comparison_header">Unknown</h4>
+            <h4 id="shots_hit_post_comparison_header">Unknown</h4>
+            <h4 id="shots_on_target_percent_comparison_header">Unknown</h4>
+            <h4 id="shots_per_goal_comparison_header">Unknown</h4>
+            <h4 id="passes_attempted_comparison_header">Unknown</h4>
+            <h4 id="passes_completed_comparison_header">Unknown</h4>
+            <h4 id="passes_missed_comparison_header">Unknown</h4>
+            <h4 id="pass_completion_percent_comparison_header">Unknown</h4>
+            <h4 id="dribbles_attempted_comparison_header">Unknown</h4>
+            <h4 id="successful_dribbles_comparison_header">Unknown</h4>
+            <h4 id="failed_dribbles_comparison_header">Unknown</h4>
+            <h4 id="dribble_completion_percent_comparison_header">Unknown</h4>
+            <h4 id="duels_attempted_comparison_header">Unknown</h4>
+            <h4 id="duels_won_comparison_header">Unknown</h4>
+            <h4 id="duels_lost_comparison_header">Unknown</h4>
+            <h4 id="duel_success_percent_comparison_header">Unknown</h4>
+            <h4 id="interceptions_comparison_header">Unknown</h4>
+            <h4 id="fouls_comparison_header">Unknown</h4>
+            <h4 id="yellow_cards_comparison_header">Unknown</h4>
+            <h4 id="red_card_comparison_header">Unknown</h4>
+        </div>
+    </div>
+
+    <h1 id="all_time_header">All Time:</h1>
+
+    <div id="all_time">
+        <div id="all_time_stats">
+            <h4 id="goals_at_header">Goals:</h4>
+            <h4 id="assists_at_header">Assists:</h4>
+            <h4 id="key_passes_at_header">Key Passes:</h4>
+            <h4 id="shots_at_header">Shots:</h4>
+            <h4 id="shots_on_target_at_header">Shots on Target:</h4>
+            <h4 id="shots_off_target_at_header">Shots off Target:</h4>
+            <h4 id="shots_hit_post_at_header">Shots that Hit Post:</h4>
+            <h4 id="shots_on_target_percent_at_header">Shots on Target %:</h4>
+            <h4 id="shots_per_goal_at_header">Shots per Goal:</h4>
+            <h4 id="passes_attempted_at_header">Passes Attempted:</h4>
+            <h4 id="passes_completed_at_header">Passes Completed:</h4>
+            <h4 id="passes_missed_at_header">Passes Missed:</h4>
+            <h4 id="pass_completion_at_header">Passes Completion %:</h4>
+            <h4 id="dribbles_attempted_at_header">Dribbles Attempted:</h4>
+            <h4 id="successful_dribbles_at_header">Successful Dribbles:</h4>
+            <h4 id="failed_dribbles_at_header">Failed Dribbles:</h4>
+            <h4 id="dribble_completion_percent_at_header">Dribble Completion %:</h4>
+            <h4 id="duels_attempted_at_header">Duels Attempted:</h4>
+            <h4 id="duels_won_at_header">Duels Won:</h4>
+            <h4 id="duels_lost_at_header">Duels Lost:</h4>
+            <h4 id="duel_success_percent_at_header">Duel Success %:</h4>
+            <h4 id="interceptions_at_header">Interceptions:</h4>
+            <h4 id="fouls_at_header">Fouls:</h4>
+            <h4 id="yellow_cards_at_header">Yellow Cards:</h4>
+            <h4 id="red_card_at_header">Red Card:</h4>
+        </div>
+        <div id="all_time_btns_plus">
+            <button id="goals_at_btn_plus" class="all_time_btn_plus" onclick="add1_goals_at()">+</button>
+            <button id="assists_at_btn_plus" class="all_time_btn_plus" onclick="add1_assists_at()">+</button>
+            <button id="key_passes_at_btn_plus" class="all_time_btn_plus" onclick="add1_key_passes_at()">+</button>
+            <button id="shots_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_at()">+</button>
+            <button id="shots_on_target_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_on_target_at()">+</button>
+            <button id="shots_off_target_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_off_target_at()">+</button>
+            <button id="shots_hit_post_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_hit_post_at()">+</button>
+            <button id="shots_on_target_percent_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_on_target_percent_at()">+</button>
+            <button id="shots_per_goal_at_btn_plus" class="all_time_btn_plus" onclick="add1_shots_per_goal_at()">+</button>
+            <button id="passes_attempted_at_btn_plus" class="all_time_btn_plus" onclick="add1_passes_attempted_at()">+</button>
+            <button id="passes_completed_at_btn_plus" class="all_time_btn_plus" onclick="add1_passes_completed_at()">+</button>
+            <button id="passes_missed_at_btn_plus" class="all_time_btn_plus" onclick="add1_passes_missed_at()">+</button>
+            <button id="passes_completion_percent_at_btn_plus" class="all_time_btn_plus" onclick="add1_passes_completion_percent_at()">+</button>
+            <button id="dribbles_attempted_at_btn_plus" class="all_time_btn_plus" onclick="add1_dribbles_attempted_at()">+</button>
+            <button id="successful_dribbles_at_btn_plus" class="all_time_btn_plus" onclick="add1_successful_dribbles_at()">+</button>
+            <button id="failed_dribbles_at_btn_plus" class="all_time_btn_plus" onclick="add1_failed_dribbles_at()">+</button>
+            <button id="dribble_completion_percent_at_btn_plus" class="all_time_btn_plus" onclick="add1_dribble_completion_percent_at()">+</button>
+            <button id="duels_attempted_at_btn_plus" class="all_time_btn_plus" onclick="add1_duels_attempted_at()">+</button>
+            <button id="duels_won_at_btn_plus" class="all_time_btn_plus" onclick="add1_duels_won_at()">+</button>
+            <button id="duels_lost_at_btn_plus" class="all_time_btn_plus" onclick="add1_duels_lost_at()">+</button>
+            <button id="duel_success_percent_at_btn_plus" class="all_time_btn_plus" onclick="add1_duel_success_percent_at()">+</button>
+            <button id="interceptions_at_btn_plus" class="all_time_btn_plus" onclick="add1_interceptions_at()">+</button>
+            <button id="fouls_at_btn_plus" class="all_time_btn_plus" onclick="add1_fouls_at()">+</button>
+            <button id="yellow_cards_at_btn_plus" class="all_time_btn_plus" onclick="add1_yellow_cards_at()">+</button>
+            <button id="red_card_at_btn_plus" class="all_time_btn_plus" onclick="add1_red_card_at()">+</button>
+
+        </div>
+        <div id="all_time_btns_minus">
+            <button id="goals_minus_btn" class="all_time_btn_minus" onclick="minus1_goals_at()">-</button>
+            <button id="assists_minus_btn" class="all_time_btn_minus" onclick="minus1_assists_at()">-</button>
+            <button id="key_passes_minus_btn" class="all_time_btn_minus" onclick="minus1_key_passes_at()">-</button>
+            <button id="shots_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_at()">-</button>
+            <button id="shots_on_target_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_on_target_at()">-</button>
+            <button id="shots_off_target_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_off_target_at()">-</button>
+            <button id="shots_hit_post_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_hit_post_at()">-</button>
+            <button id="shots_on_target_percent_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_on_target_percent_at()">-</button>
+            <button id="shots_per_goal_minus_btn" class="all_time_btn_minus" onclick="minus1_shots_per_goal_at()">-</button>
+            <button id="passes_attempted_minus_btn" class="all_time_btn_minus" onclick="minus1_passes_attempted_at()">-</button>
+            <button id="passes_completed_minus_btn" class="all_time_btn_minus" onclick="minus1_passes_completed_at()">-</button>
+            <button id="passes_missed_minus_btn" class="all_time_btn_minus" onclick="minus1_passes_missed_at()">-</button>
+            <button id="passes_completion_percent_minus_btn" class="all_time_btn_minus" onclick="minus1_pass_completion_percent_at()">-</button>
+            <button id="dribbles_attempted_minus_btn" class="all_time_btn_minus" onclick="minus1_dribbles_attempted_at()">-</button>
+            <button id="successful_dribbles_minus_btn" class="all_time_btn_minus" onclick="minus1_successful_dribbles_at()">-</button>
+            <button id="failed_dribbles_minus_btn" class="all_time_btn_minus" onclick="minus1_failed_dribbles_at()">-</button>
+            <button id="dribble_completion_percent_minus_btn" class="all_time_btn_minus" onclick="minus1_dribble_completion_percent_at()">-</button>
+            <button id="duels_attempted_minus_btn" class="all_time_btn_minus" onclick="minus1_duels_attempted_at()">-</button>
+            <button id="duels_won_minus_btn" class="all_time_btn_minus" onclick="minus1_duels_won_at()">-</button>
+            <button id="duels_lost_minus_btn" class="all_time_btn_minus" onclick="minus1_duels_lost_at()">-</button>
+            <button id="duel_success_percent_minus_btn" class="all_time_btn_minus" onclick="minus1_duel_success_percent_at()">-</button>
+            <button id="interceptions_minus_btn" class="all_time_btn_minus" onclick="minus1_interceptions_at()">-</button>
+            <button id="fouls_minus_btn" class="all_time_btn_minus" onclick="minus1_fouls_at()">-</button>
+            <button id="yellow_cards_minus_btn" class="all_time_btn_minus" onclick="minus1_yellow_cards_at()">-</button>
+            <button id="red_card_minus_btn" class="all_time_btn_minus" onclick="minus1_red_card_at()">-</button>
+        </div>
+    </div>
+</body>
+</html>
+
